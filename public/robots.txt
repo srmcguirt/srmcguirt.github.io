@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://srmcguirt.dev/sitemap.xml

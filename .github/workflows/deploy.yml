@@ -1,0 +1,19 @@
+# Auto-deploy srmcguirt.dev on every push to main.
+# Requires one repo secret: CLOUDFLARE_API_TOKEN
+#   (Cloudflare dashboard -> My Profile -> API Tokens -> Create Token ->
+#    "Edit Cloudflare Workers" template)
+name: Deploy to Cloudflare Workers
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: cloudflare/wrangler-action@v3
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}

@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WireForge — AI Developer Tools That Actually Work</title>
-<meta name="description" content="Prompt packs, MCP server kits, and agent boilerplates for engineers who ship.">
+<title>WireForge — Automation Builds &amp; AI Developer Tools | Shane McGuirt</title>
+<meta name="description" content="Fixed-price Shopify Stocky migrations, n8n/AI workflow builds, and AI consulting — plus free prompt packs, MCP server kits, and agent boilerplates for engineers who ship.">
 <style>
 /* ──────────────────────────────────────────
    Design tokens
@@ -745,6 +745,75 @@ section {
   .section-header { margin-bottom: var(--space-12); }
 }
 
+/* ── Urgency banner (remove after Aug 31, 2026) ── */
+.banner {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 101;
+  padding: var(--space-2) var(--space-4);
+  text-align: center;
+  font-size: 0.8125rem;
+  background: #2a1510;
+  border-bottom: 1px solid #5a2c1c;
+  color: var(--text);
+}
+.banner strong { color: #ff6b4a; }
+.banner a { color: #ff9a7a; font-weight: 600; }
+body.has-banner .nav { top: 36px; }
+body.has-banner .hero { padding-top: 196px; }
+
+/* ── Service tiers ─────────────────────── */
+.tiers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-6);
+}
+.tier-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-8);
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.tier-card:hover { border-color: var(--border-hover); }
+.tier-card.featured { border-color: #5a2c1c; box-shadow: 0 0 32px rgba(255, 107, 74, 0.07); }
+.tier-tag {
+  position: absolute;
+  top: -12px; left: var(--space-6);
+  background: #ff6b4a;
+  color: #fff;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 3px 10px;
+  border-radius: 100px;
+}
+.tier-price {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: var(--on-primary);
+  margin: var(--space-3) 0 var(--space-1);
+}
+.tier-price small { font-size: 0.8125rem; font-weight: 400; color: var(--text-muted); }
+.tier-card ul { list-style: none; margin: var(--space-4) 0 var(--space-6); flex: 1; }
+.tier-card li {
+  padding: var(--space-1) 0 var(--space-1) var(--space-6);
+  position: relative;
+  color: var(--text-muted);
+  font-size: 0.9375rem;
+}
+.tier-card li::before { content: '✓'; color: #34d399; position: absolute; left: 0; }
+@media (max-width: 960px) { .tiers-grid { grid-template-columns: 1fr; } }
+
+/* ── Email form status message ─────────── */
+.form-status { margin-top: var(--space-3); font-size: 0.875rem; min-height: 1.4em; }
+.form-status.ok { color: #34d399; }
+.form-status.err { color: #ff6b4a; }
+
 /* ── Scrollbar (subtle) ────────────────── */
 ::-webkit-scrollbar { width: 8px; }
 ::-webkit-scrollbar-track { background: var(--bg); }
@@ -752,7 +821,13 @@ section {
 ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 </style>
 </head>
-<body>
+<body class="has-banner">
+
+<!-- ─── Urgency banner: DELETE this block + body.has-banner class after Aug 31, 2026 ─── -->
+<div class="banner">
+  ⏰ <strong>Shopify shuts down Stocky on August&nbsp;31.</strong>
+  Migration slots are limited — <a href="#services">reserve yours</a>.
+</div>
 
 <!-- ─── Nav ─────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -774,10 +849,11 @@ section {
       WireForge
     </a>
     <ul class="nav-links">
-      <li><a href="#products">Products</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#products">Tools</a></li>
       <li><a href="#why">Why WireForge</a></li>
       <li><a href="https://github.com/srmcguirt" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="#notify" class="btn btn-primary btn-sm">Get Updates</a></li>
+      <li><a href="#services" class="btn btn-primary btn-sm">Get a Quote</a></li>
     </ul>
   </div>
 </nav>
@@ -786,15 +862,12 @@ section {
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-copy">
-      <p class="hero-eyebrow">Open Source + Premium</p>
-      <h1>AI Developer Tools That Actually&nbsp;Work</h1>
-      <p class="hero-subtitle">10 prompt packs, MCP server kits, and agent boilerplates for engineers who ship. Used by DevOps, data, sales, marketing, and product teams.</p>
+      <p class="hero-eyebrow">Shane McGuirt · WireForge</p>
+      <h1>Automations that pay for themselves in the first&nbsp;month</h1>
+      <p class="hero-subtitle">Fixed-price Shopify migrations, n8n/AI workflow builds, and practical AI consulting for businesses tired of spreadsheets and copy-paste. Plus the open-source tools it's all built on.</p>
       <div class="hero-actions">
-        <a href="#products" class="btn btn-primary">Browse Products</a>
-        <a href="https://github.com/srmcguirt" target="_blank" rel="noopener" class="btn btn-ghost">
-          <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0016 8c0-4.42-3.58-8-8-8z"/></svg>
-          View on GitHub
-        </a>
+        <a href="#services" class="btn btn-primary">Get a Fixed Quote</a>
+        <a href="#products" class="btn btn-ghost">Browse Free Tools</a>
       </div>
     </div>
 
@@ -826,6 +899,63 @@ section {
   severity levels: <span class="string">critical</span> | <span class="string">warning</span> | <span class="string">info</span></pre>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ─── Services ────────────────────────── -->
+<section class="values" id="services">
+  <div class="container">
+    <div class="section-header" data-reveal>
+      <p class="section-label">Services</p>
+      <h2 class="section-title">Fixed price. Scoped in writing. Fast turnaround.</h2>
+      <p class="section-subtitle">Every engagement gets a written scope and a fixed quote before any money moves.</p>
+    </div>
+
+    <div class="tiers-grid" data-reveal-group>
+
+      <!-- Tier 1: urgent hook — retire after Aug 31, 2026 -->
+      <div class="tier-card featured">
+        <span class="tier-tag">Deadline: Aug 31</span>
+        <h3 class="product-name">Shopify Stocky Migration</h3>
+        <p class="tier-price">$750 <small>flat · 48–72 hr turnaround</small></p>
+        <ul>
+          <li>Full Stocky data export before shutdown</li>
+          <li>Replacement app chosen for your workflow — no affiliate bias</li>
+          <li>PO, receiving &amp; barcode workflows rebuilt</li>
+          <li>Reorder-point automation included</li>
+          <li>Documented handoff — you own everything</li>
+        </ul>
+        <a class="btn btn-primary" href="mailto:srmcguirt@gmail.com?subject=Stocky%20migration%20—%20reserve%20a%20slot">Reserve a Slot</a>
+      </div>
+
+      <!-- Tier 2: core offer -->
+      <div class="tier-card">
+        <h3 class="product-name">Automation &amp; AI Workflow Builds</h3>
+        <p class="tier-price">$1,000–2,500 <small>per workflow · scoped fixed</small></p>
+        <ul>
+          <li>n8n / Make / custom builds that run unattended</li>
+          <li>Inventory sync, supplier PO chasing, reorder math</li>
+          <li>Lead capture → CRM → follow-up pipelines</li>
+          <li>AI agents with human-approval gates</li>
+          <li>Optional care plan from $300/mo</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:srmcguirt@gmail.com?subject=Workflow%20build%20inquiry">Describe Your Bottleneck</a>
+      </div>
+
+      <!-- Tier 3: entry ramp -->
+      <div class="tier-card">
+        <h3 class="product-name">AI Working Session</h3>
+        <p class="tier-price">$150 <small>· 90 min · credited toward any build</small></p>
+        <ul>
+          <li>Live audit of your manual processes</li>
+          <li>Ranked automation plan: effort vs payoff</li>
+          <li>Prompt &amp; tooling setup for your business</li>
+          <li>Recording + written action plan</li>
+        </ul>
+        <a class="btn btn-ghost" href="mailto:srmcguirt@gmail.com?subject=AI%20working%20session">Book a Session</a>
+      </div>
+
     </div>
   </div>
 </section>
@@ -1001,21 +1131,7 @@ section {
         </div>
       </div>
 
-      <!-- 9. Sales AI Prompt Pack -->
-      <div class="product-card">
-        <div class="product-card-header">
-          <div class="product-icon">
-            <svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
-          </div>
-          <span class="product-badge badge-paid">$49</span>
-        </div>
-        <h3 class="product-name">Sales AI Prompt Pack</h3>
-        <p class="product-desc">8 system prompts for the complete B2B sales cycle: prospect research, cold email (3 variants), discovery prep, demo scripts, objection handling, proposals, and follow-up sequences.</p>
-        <div class="product-actions">
-          <a href="https://github.com/srmcguirt/sales-ai-prompt-pack" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View on GitHub</a>
-          <a href="https://srmcguirt.gumroad.com" target="_blank" rel="noopener" class="btn btn-primary btn-sm">Buy on Gumroad</a>
-        </div>
-      </div>
+      
 
     </div>
   </div>
@@ -1078,7 +1194,7 @@ section {
     <div class="cta-box" data-reveal>
       <h2>Get notified when we ship new&nbsp;tools</h2>
       <p>No spam. Just releases, major updates, and the occasional deep dive.</p>
-      <form class="email-form" action="#" method="POST" aria-label="Newsletter signup">
+      <form class="email-form" id="subscribe-form" aria-label="Newsletter signup">
         <label for="email-input" class="sr-only">Email address</label>
         <input
           type="email"
@@ -1089,8 +1205,9 @@ section {
           autocomplete="email"
           aria-label="Email address"
         />
-        <button type="submit" class="btn btn-primary">Subscribe</button>
+        <button type="submit" class="btn btn-primary" id="subscribe-btn">Subscribe</button>
       </form>
+      <p class="form-status" id="subscribe-status" role="status" aria-live="polite"></p>
     </div>
   </div>
 </section>
@@ -1154,6 +1271,51 @@ section {
 
   document.querySelectorAll('[data-reveal], [data-reveal-group]').forEach(function (el) {
     observer.observe(el);
+  });
+})();
+
+// ── Email capture → Worker /subscribe (writes to EMAILS KV) ──
+(function () {
+  'use strict';
+  var form = document.getElementById('subscribe-form');
+  var input = document.getElementById('email-input');
+  var btn = document.getElementById('subscribe-btn');
+  var status = document.getElementById('subscribe-status');
+  if (!form) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    var email = (input.value || '').trim();
+    if (!email) return;
+    btn.disabled = true;
+    btn.textContent = 'Subscribing…';
+    status.className = 'form-status';
+    status.textContent = '';
+
+    fetch('/subscribe', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ email: email })
+    })
+      .then(function (res) { return res.json(); })
+      .then(function (data) {
+        if (data.ok) {
+          status.className = 'form-status ok';
+          status.textContent = 'You are in. Watch your inbox.';
+          input.value = '';
+        } else {
+          status.className = 'form-status err';
+          status.textContent = data.error || 'Something went wrong — try again.';
+        }
+      })
+      .catch(function () {
+        status.className = 'form-status err';
+        status.textContent = 'Network error — try again in a moment.';
+      })
+      .finally(function () {
+        btn.disabled = false;
+        btn.textContent = 'Subscribe';
+      });
   });
 })();
 
