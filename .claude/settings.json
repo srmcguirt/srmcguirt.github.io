@@ -1,0 +1,10 @@
+{
+  "extraKnownMarketplaces": {
+    "rampstack": {
+      "source": { "repo": "rampstackco/claude-skills", "source": "github" }
+    }
+  },
+  "enabledPlugins": {
+    "rampstack-skills@rampstack": true
+  }
+}
