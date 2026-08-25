@@ -4,6 +4,10 @@ main = "src/worker.js"
 compatibility_date = "2026-08-01"
 account_id = "f1c459bc383333aa80e6e8e5ad2cd450"
 
+# Serve only via the srmcguirt.dev custom domain — do not expose the
+# account's generic *.workers.dev URL (was live at wireforge.fellwork.workers.dev)
+workers_dev = false
+
 # Static site files live in public/; 404s are handled by the worker
 [assets]
 directory = "./public"
