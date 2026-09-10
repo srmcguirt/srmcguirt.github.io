@@ -8,7 +8,7 @@ namespace (`src/worker.js`, `wrangler.toml`). The profile README lives at
 `profile/README.md` and is pushed to the `srmcguirt/srmcguirt` repo — never
 edit that repo directly. Publish both with `scripts/publish.sh`; CI does the
 same on push to `main` once the `CLOUDFLARE_API_TOKEN` and
-`PROFILE_SYNC_TOKEN` secrets exist. `scripts/check-links.sh` must pass before
+`PROFILE_DEPLOY_KEY` secrets exist. `scripts/check-links.sh` must pass before
 anything ships. The site sells a three-tier services funnel; the Gumroad
 product catalog was retired in September 2026 and must not come back as dead
 links. No `package.json` — the Worker is deployed via `npx wrangler`.

@@ -1,6 +1,6 @@
 # Keep github.com/srmcguirt's profile README identical to profile/README.md here.
-# Requires one repo secret: PROFILE_SYNC_TOKEN
-#   (fine-grained PAT, repository access: srmcguirt/srmcguirt, permission: Contents = Read and write)
+# Requires one repo secret: PROFILE_DEPLOY_KEY
+#   (private half of a write-enabled deploy key registered on srmcguirt/srmcguirt)
 name: Sync profile README
 
 on:
@@ -16,12 +16,19 @@ jobs:
       - uses: actions/checkout@v4
       - name: Push README to srmcguirt/srmcguirt
         env:
-          GH_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
+          DEPLOY_KEY: ${{ secrets.PROFILE_DEPLOY_KEY }}
         run: |
           set -euo pipefail
-          repo=srmcguirt/srmcguirt
-          sha=$(gh api "repos/$repo/contents/README.md" --jq .sha 2>/dev/null || true)
-          gh api -X PUT "repos/$repo/contents/README.md" \
-            -f message="Sync profile README from srmcguirt.github.io@${GITHUB_SHA::7}" \
-            -f content="$(base64 -w0 profile/README.md)" \
-            ${sha:+-f sha="$sha"} --silent
+          mkdir -p ~/.ssh
+          printf '%s\n' "$DEPLOY_KEY" > ~/.ssh/profile_sync
+          chmod 600 ~/.ssh/profile_sync
+          ssh-keyscan github.com >> ~/.ssh/known_hosts 2>/dev/null
+          export GIT_SSH_COMMAND="ssh -i ~/.ssh/profile_sync -o IdentitiesOnly=yes"
+          git clone --depth 1 git@github.com:srmcguirt/srmcguirt.git profile-repo
+          cp profile/README.md profile-repo/README.md
+          cd profile-repo
+          if git diff --quiet; then echo "Profile README already up to date."; exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -am "Sync profile README from srmcguirt.github.io@${GITHUB_SHA::7}"
+          git push

@@ -23,8 +23,8 @@ CI on push to `main` (each needs one repo secret):
 
 - `deploy.yml` → Cloudflare Workers, needs `CLOUDFLARE_API_TOKEN`
   (Cloudflare dashboard → My Profile → API Tokens → "Edit Cloudflare Workers" template)
-- `sync-profile.yml` → profile README, needs `PROFILE_SYNC_TOKEN`
-  (fine-grained PAT scoped to `srmcguirt/srmcguirt`, Contents: read/write)
+- `sync-profile.yml` → profile README, needs `PROFILE_DEPLOY_KEY`
+  (private half of a write deploy key registered on `srmcguirt/srmcguirt`)
 - `check-links.yml` → fails on any dead outbound link; also runs weekly
 
 ```bash
