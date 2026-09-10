@@ -1,13 +1,17 @@
 # srmcguirt.github.io / srmcguirt.dev (WireForge)
 
-Live marketing/product site for srmcguirt.dev, served by the `wireforge`
+Single source of truth for two published surfaces: the srmcguirt.dev site and
+the github.com/srmcguirt profile README. The site is served by the `wireforge`
 Cloudflare Worker: static assets in `public/` (index.html, robots.txt,
 sitemap.xml) plus `/subscribe` email capture backed by an `EMAILS` KV
-namespace (`src/worker.js`, `wrangler.toml`). Deploys automatically on push
-to `main` via GitHub Actions (`.github/workflows/deploy.yml`, needs the
-`CLOUDFLARE_API_TOKEN` repo secret). Sells prompt packs / MCP kits / agent
-boilerplates and now a three-tier services funnel. No `package.json` — the
-Worker is deployed via `npx wrangler`, not a tracked dependency.
+namespace (`src/worker.js`, `wrangler.toml`). The profile README lives at
+`profile/README.md` and is pushed to the `srmcguirt/srmcguirt` repo — never
+edit that repo directly. Publish both with `scripts/publish.sh`; CI does the
+same on push to `main` once the `CLOUDFLARE_API_TOKEN` and
+`PROFILE_SYNC_TOKEN` secrets exist. `scripts/check-links.sh` must pass before
+anything ships. The site sells a three-tier services funnel; the Gumroad
+product catalog was retired in September 2026 and must not come back as dead
+links. No `package.json` — the Worker is deployed via `npx wrangler`.
 
 ## Skill routing
 
@@ -24,7 +28,7 @@ only living in a personal `~/.claude/settings.json`.
   no per-product entries) → `seo-technical`
 - Email-capture conversion work (`/subscribe` is live and wired to a real
   KV store now, not a placeholder) → `cro-optimization`
-- Tone/voice consistency across product cards, services tiers, and urgency
+- Tone/voice consistency across services tiers and urgency
   banners (e.g. the "Stocky Aug 31" banner) → `brand-voice`
 - General copy/content edits beyond the landing page → `content-and-copy`
 - Accessibility check (public-facing UI) → `accessibility-audit`

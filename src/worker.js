@@ -13,8 +13,9 @@ export default {
     if (url.pathname === '/github') {
       return Response.redirect('https://github.com/srmcguirt', 302);
     }
+    // Gumroad store is closed; keep old /gumroad links from dead-ending
     if (url.pathname === '/gumroad') {
-      return Response.redirect('https://srmcguirt.gumroad.com', 302);
+      return Response.redirect(`${url.origin}/`, 302);
     }
 
     // Email capture -> EMAILS KV (key: email, value: ISO timestamp)

@@ -1,0 +1,27 @@
+# Keep github.com/srmcguirt's profile README identical to profile/README.md here.
+# Requires one repo secret: PROFILE_SYNC_TOKEN
+#   (fine-grained PAT, repository access: srmcguirt/srmcguirt, permission: Contents = Read and write)
+name: Sync profile README
+
+on:
+  push:
+    branches: [main]
+    paths: [profile/README.md]
+  workflow_dispatch:
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Push README to srmcguirt/srmcguirt
+        env:
+          GH_TOKEN: ${{ secrets.PROFILE_SYNC_TOKEN }}
+        run: |
+          set -euo pipefail
+          repo=srmcguirt/srmcguirt
+          sha=$(gh api "repos/$repo/contents/README.md" --jq .sha 2>/dev/null || true)
+          gh api -X PUT "repos/$repo/contents/README.md" \
+            -f message="Sync profile README from srmcguirt.github.io@${GITHUB_SHA::7}" \
+            -f content="$(base64 -w0 profile/README.md)" \
+            ${sha:+-f sha="$sha"} --silent

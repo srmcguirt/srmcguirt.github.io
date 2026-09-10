@@ -1,19 +1,40 @@
 # srmcguirt.dev — WireForge
 
-Live site for [srmcguirt.dev](https://srmcguirt.dev), served by the `wireforge`
-Cloudflare Worker (static assets in `public/` + email capture at `/subscribe`
-backed by the EMAILS KV namespace).
+Single source of truth for two published surfaces:
 
-## Deploy
+| Surface | Source in this repo | Published by |
+|---|---|---|
+| [srmcguirt.dev](https://srmcguirt.dev) | `public/` + `src/worker.js` | Cloudflare Worker `wireforge` |
+| [github.com/srmcguirt](https://github.com/srmcguirt) profile README | `profile/README.md` | pushed to the `srmcguirt/srmcguirt` repo |
 
-Push to `main` and GitHub Actions deploys via wrangler.
-One-time setup: add the `CLOUDFLARE_API_TOKEN` repo secret
-(Cloudflare dashboard -> My Profile -> API Tokens -> "Edit Cloudflare Workers" template).
+Edit here, publish from here. Never edit the profile repo directly — it gets overwritten.
 
-Manual deploy: `npx wrangler deploy`
+## Publish
+
+Local (works today with `gh auth login` + `npx wrangler login`):
+
+```bash
+scripts/publish.sh          # site + profile
+scripts/publish.sh site     # Cloudflare only
+scripts/publish.sh profile  # GitHub profile README only
+```
+
+CI on push to `main` (each needs one repo secret):
+
+- `deploy.yml` → Cloudflare Workers, needs `CLOUDFLARE_API_TOKEN`
+  (Cloudflare dashboard → My Profile → API Tokens → "Edit Cloudflare Workers" template)
+- `sync-profile.yml` → profile README, needs `PROFILE_SYNC_TOKEN`
+  (fine-grained PAT scoped to `srmcguirt/srmcguirt`, Contents: read/write)
+- `check-links.yml` → fails on any dead outbound link; also runs weekly
+
+```bash
+scripts/check-links.sh      # run the link check locally
+```
 
 ## Structure
 
 - `public/` — static site (index.html, robots.txt, sitemap.xml)
-- `src/worker.js` — routing, /subscribe endpoint, 404 handling
+- `profile/README.md` — GitHub profile README
+- `src/worker.js` — routing, `/subscribe` email capture (EMAILS KV), 404 handling
 - `wrangler.toml` — worker + assets + KV config
+- `scripts/` — `publish.sh`, `check-links.sh`
