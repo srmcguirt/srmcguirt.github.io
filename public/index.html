@@ -745,22 +745,6 @@ section {
   .section-header { margin-bottom: var(--space-12); }
 }
 
-/* ── Urgency banner (remove after Aug 31, 2026) ── */
-.banner {
-  position: fixed;
-  top: 0; left: 0; right: 0;
-  z-index: 101;
-  padding: var(--space-2) var(--space-4);
-  text-align: center;
-  font-size: 0.8125rem;
-  background: #2a1510;
-  border-bottom: 1px solid #5a2c1c;
-  color: var(--text);
-}
-.banner strong { color: #ff6b4a; }
-.banner a { color: #ff9a7a; font-weight: 600; }
-body.has-banner .nav { top: 36px; }
-body.has-banner .hero { padding-top: 196px; }
 
 /* ── Service tiers ─────────────────────── */
 .tiers-grid {
@@ -821,13 +805,8 @@ body.has-banner .hero { padding-top: 196px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
 </style>
 </head>
-<body class="has-banner">
+<body>
 
-<!-- ─── Urgency banner: DELETE this block + body.has-banner class after Aug 31, 2026 ─── -->
-<div class="banner">
-  ⏰ <strong>Shopify shuts down Stocky on August&nbsp;31.</strong>
-  Migration slots are limited — <a href="#services">reserve yours</a>.
-</div>
 
 <!-- ─── Nav ─────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
@@ -912,10 +891,8 @@ body.has-banner .hero { padding-top: 196px; }
     </div>
 
     <div class="tiers-grid" data-reveal-group>
-
-      <!-- Tier 1: urgent hook — retire after Aug 31, 2026 -->
+      <!-- Tier 1 -->
       <div class="tier-card featured">
-        <span class="tier-tag">Deadline: Aug 31</span>
         <h3 class="product-name">Shopify Stocky Migration</h3>
         <p class="tier-price">$750 <small>flat · 48–72 hr turnaround</small></p>
         <ul>
