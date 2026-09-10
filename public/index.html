@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WireForge — Automation Builds &amp; AI Consulting | Shane McGuirt</title>
-<meta name="description" content="Fixed-price Shopify Stocky migrations, n8n/AI workflow builds, and practical AI consulting for businesses tired of spreadsheets and copy-paste — plus the open-source tooling it is built on.">
+<title>Shane McGuirt — Developer</title>
+<meta name="description" content="Shane McGuirt builds products and the tooling around them — Rust, TypeScript, and Python on Supabase and Cloudflare Workers. Fellwork, Meg Loves History, Aihu, and open source.">
 <style>
 /* ──────────────────────────────────────────
    Design tokens
@@ -803,35 +803,24 @@ section {
 ::-webkit-scrollbar-track { background: var(--bg); }
 ::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
 ::-webkit-scrollbar-thumb:hover { background: var(--border-hover); }
+
+/* ── Stack chips ───────────────────────── */
+.stack-list { display: flex; flex-wrap: wrap; gap: var(--space-2); justify-content: center; list-style: none; max-width: 720px; margin: 0 auto; }
+.stack-list li { font-family: var(--font-mono); font-size: 0.85rem; color: var(--text); background: var(--surface); border: 1px solid var(--border); border-radius: 100px; padding: var(--space-2) var(--space-4); }
+.terminal-body .prompt { color: var(--text-muted); }
 </style>
 </head>
 <body>
 
-
 <!-- ─── Nav ─────────────────────────────── -->
 <nav class="nav" role="navigation" aria-label="Main navigation">
   <div class="container">
-    <a href="#" class="nav-brand" aria-label="WireForge home">
-      <!-- Mark: anvil + spark — geometric, recognizable at 16px -->
-      <svg class="nav-mark" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <path d="M6 20h16l-2-6H8L6 20z" fill="var(--accent)" opacity="0.85"/>
-        <path d="M8 14h12l-1.5-5h-9L8 14z" fill="var(--accent)" opacity="0.55"/>
-        <path d="M10.5 9h7L16 5h-4l-1.5 4z" fill="var(--accent)" opacity="0.3"/>
-        <rect x="11" y="20" width="6" height="3" rx="0.5" fill="var(--accent)" opacity="0.9"/>
-        <!-- spark -->
-        <circle cx="21" cy="7" r="1.5" fill="var(--accent)"/>
-        <line x1="21" y1="3" x2="21" y2="4.5" stroke="var(--accent)" stroke-width="1"/>
-        <line x1="21" y1="9.5" x2="21" y2="11" stroke="var(--accent)" stroke-width="1"/>
-        <line x1="17.5" y1="7" x2="19" y2="7" stroke="var(--accent)" stroke-width="1"/>
-        <line x1="23" y1="7" x2="24.5" y2="7" stroke="var(--accent)" stroke-width="1"/>
-      </svg>
-      WireForge
-    </a>
+    <a href="#" class="nav-brand" aria-label="Shane McGuirt home">Shane McGuirt</a>
     <ul class="nav-links">
-      <li><a href="#services">Services</a></li>
-      <li><a href="#why">Why WireForge</a></li>
-      <li><a href="https://github.com/srmcguirt" target="_blank" rel="noopener">GitHub</a></li>
-      <li><a href="#services" class="btn btn-primary btn-sm">Get a Quote</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#open-source">Open Source</a></li>
+      <li><a href="#stack">Stack</a></li>
+      <li><a href="https://github.com/srmcguirt" target="_blank" rel="noopener" class="btn btn-primary btn-sm">GitHub</a></li>
     </ul>
   </div>
 </nav>
@@ -840,181 +829,144 @@ section {
 <section class="hero" id="hero">
   <div class="container">
     <div class="hero-copy">
-      <p class="hero-eyebrow">Shane McGuirt · WireForge</p>
-      <h1>Automations that pay for themselves in the first&nbsp;month</h1>
-      <p class="hero-subtitle">Fixed-price Shopify migrations, n8n/AI workflow builds, and practical AI consulting for businesses tired of spreadsheets and copy-paste. Plus the open-source tools it's all built on.</p>
+      <p class="hero-eyebrow">Shane McGuirt · Developer</p>
+      <h1>I build products and the tooling around&nbsp;them</h1>
+      <p class="hero-subtitle">Rust, TypeScript, and Python on Supabase and Cloudflare Workers. A Bible study platform, a graph of medieval England, a framework for humans and AI, and the open-source pieces underneath.</p>
       <div class="hero-actions">
-        <a href="#services" class="btn btn-primary">Get a Fixed Quote</a>
-        <a href="https://github.com/srmcguirt" target="_blank" rel="noopener" class="btn btn-ghost">Open-Source Tools</a>
+        <a href="#projects" class="btn btn-primary">See the Projects</a>
+        <a href="https://github.com/srmcguirt" target="_blank" rel="noopener" class="btn btn-ghost">GitHub</a>
       </div>
     </div>
 
-    <!-- Hero visual: a real prompt template preview — show, don't tell -->
     <div class="hero-visual-wrap">
-      <div class="hero-terminal" aria-label="Example prompt template">
+      <div class="hero-terminal" aria-label="Project listing">
         <div class="terminal-bar" aria-hidden="true">
           <span class="terminal-dot"></span>
           <span class="terminal-dot"></span>
           <span class="terminal-dot"></span>
-          <span class="terminal-title">wireforge / terraform-review.yml</span>
+          <span class="terminal-title">shane@dev — ~/projects</span>
         </div>
         <div class="terminal-body">
-<pre><span class="key">name</span><span class="punct">:</span> <span class="string">Terraform Plan Review</span>
-<span class="key">model</span><span class="punct">:</span> <span class="string">claude-sonnet-4-20250514</span>
-<span class="key">temperature</span><span class="punct">:</span> <span class="string">0.2</span>
+<pre><span class="prompt">$</span> <span class="keyword">ls</span> ~/projects
+<span class="string">fellwork/</span>  <span class="string">meg-loves-history/</span>  <span class="string">aihu/</span>  <span class="string">portkit/</span>
 
-<span class="key">system</span><span class="punct">:</span> <span class="punct">|</span>
-  <span class="comment"># You are a senior infrastructure engineer</span>
-  <span class="comment"># reviewing a Terraform plan for production.</span>
+<span class="prompt">$</span> <span class="keyword">cat</span> ~/projects/stack.txt
+<span class="key">languages</span><span class="punct">:</span>  rust · typescript · python
+<span class="key">data</span><span class="punct">:</span>       supabase · postgres
+<span class="key">edge</span><span class="punct">:</span>       cloudflare workers
+<span class="key">frontend</span><span class="punct">:</span>   nuxt
 
-  <span class="keyword">Review</span> the plan output for:
-  - Security misconfigurations
-  - Cost implications &gt; $50/month
-  - State drift risks
-  - Missing <span class="keyword">lifecycle</span> blocks
-
-  <span class="keyword">Output</span> a structured review with
-  severity levels: <span class="string">critical</span> | <span class="string">warning</span> | <span class="string">info</span></pre>
+<span class="prompt">$</span> <span class="comment"># everything below runs in production</span></pre>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ─── Services ────────────────────────── -->
-<section class="values" id="services">
+<!-- ─── Projects ────────────────────────── -->
+<section class="values" id="projects">
   <div class="container">
     <div class="section-header" data-reveal>
-      <p class="section-label">Services</p>
-      <h2 class="section-title">Fixed price. Scoped in writing. Fast turnaround.</h2>
-      <p class="section-subtitle">Every engagement gets a written scope and a fixed quote before any money moves.</p>
+      <p class="section-label">Projects &amp; domains</p>
+      <h2 class="section-title">Things I build and run</h2>
     </div>
 
     <div class="tiers-grid" data-reveal-group>
-      <!-- Tier 1 -->
-      <div class="tier-card featured">
-        <h3 class="product-name">Shopify Stocky Migration</h3>
-        <p class="tier-price">$750 <small>flat · 48–72 hr turnaround</small></p>
+
+      <div class="tier-card">
+        <h3 class="product-name">Fellwork</h3>
+        <p class="tier-price"><small>fellwork.com</small></p>
         <ul>
-          <li>Full Stocky data export before shutdown</li>
-          <li>Replacement app chosen for your workflow — no affiliate bias</li>
-          <li>PO, receiving &amp; barcode workflows rebuilt</li>
-          <li>Reorder-point automation included</li>
-          <li>Documented handoff — you own everything</li>
+          <li>Study the Word as it was written</li>
+          <li>Bible study platform</li>
         </ul>
-        <a class="btn btn-primary" href="mailto:srmcguirt@gmail.com?subject=Stocky%20migration%20—%20reserve%20a%20slot">Reserve a Slot</a>
+        <a class="btn btn-ghost" href="https://fellwork.com" target="_blank" rel="noopener">Visit fellwork.com</a>
       </div>
 
-      <!-- Tier 2: core offer -->
       <div class="tier-card">
-        <h3 class="product-name">Automation &amp; AI Workflow Builds</h3>
-        <p class="tier-price">$1,000–2,500 <small>per workflow · scoped fixed</small></p>
+        <h3 class="product-name">Meg Loves History</h3>
+        <p class="tier-price"><small>megloveshistory.com</small></p>
         <ul>
-          <li>n8n / Make / custom builds that run unattended</li>
-          <li>Inventory sync, supplier PO chasing, reorder math</li>
-          <li>Lead capture → CRM → follow-up pipelines</li>
-          <li>AI agents with human-approval gates</li>
-          <li>Optional care plan from $300/mo</li>
+          <li>Graph database of medieval England, 410–1485</li>
+          <li>Rust workspace over Postgres / Supabase</li>
+          <li>Nuxt 4 research app</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:srmcguirt@gmail.com?subject=Workflow%20build%20inquiry">Describe Your Bottleneck</a>
+        <a class="btn btn-ghost" href="https://megloveshistory.com" target="_blank" rel="noopener">Visit megloveshistory.com</a>
       </div>
 
-      <!-- Tier 3: entry ramp -->
       <div class="tier-card">
-        <h3 class="product-name">AI Working Session</h3>
-        <p class="tier-price">$150 <small>· 90 min · credited toward any build</small></p>
+        <h3 class="product-name">Aihu</h3>
+        <p class="tier-price"><small>aihu.dev</small></p>
         <ul>
-          <li>Live audit of your manual processes</li>
-          <li>Ranked automation plan: effort vs payoff</li>
-          <li>Prompt &amp; tooling setup for your business</li>
-          <li>Recording + written action plan</li>
+          <li>The framework that equally governs humans and AI</li>
         </ul>
-        <a class="btn btn-ghost" href="mailto:srmcguirt@gmail.com?subject=AI%20working%20session">Book a Session</a>
+        <a class="btn btn-ghost" href="https://aihu.dev" target="_blank" rel="noopener">Visit aihu.dev</a>
       </div>
 
     </div>
   </div>
 </section>
 
-<!-- ─── Why WireForge ───────────────────── -->
-<section class="values" id="why">
+<!-- ─── Open source ─────────────────────── -->
+<section class="products" id="open-source">
   <div class="container">
     <div class="section-header" data-reveal>
-      <p class="section-label">Why WireForge</p>
-      <h2 class="section-title">Built to run, not to demo</h2>
+      <p class="section-label">Open source</p>
+      <h2 class="section-title">Tooling I've published</h2>
     </div>
 
-    <div class="values-grid" data-reveal-group>
-      <div class="value-card">
-        <div class="value-icon">
-          <!-- Shield + check: tested and ready -->
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-            <polyline points="9 12 11 14 15 10"/>
-          </svg>
+    <div class="products-grid" data-reveal-group>
+
+      <div class="product-card">
+        <div class="product-card-header">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          </div>
+          <span class="product-badge badge-free">Rust · Apache-2.0</span>
         </div>
-        <h3 class="value-title">Runs Unattended</h3>
-        <p class="value-desc">Every workflow ships with error handling, retries, and alerts. It keeps working when nobody is watching.</p>
+        <h3 class="product-name">portkit</h3>
+        <p class="product-desc">Rust CLI template for porting tested Python agentic processes to Rust tooling — CLI, MCP server, and library, with a golden-fixture parity harness.</p>
+        <div class="product-actions">
+          <a href="https://github.com/srmcguirt/portkit" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">View on GitHub</a>
+        </div>
       </div>
 
-      <div class="value-card">
-        <div class="value-icon">
-          <!-- Globe + arrows: works everywhere -->
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <circle cx="12" cy="12" r="10"/>
-            <line x1="2" y1="12" x2="22" y2="12"/>
-            <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-          </svg>
+      <div class="product-card">
+        <div class="product-card-header">
+          <div class="product-icon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 3h18v18H3z"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <span class="product-badge badge-free">More</span>
         </div>
-        <h3 class="value-title">Your Stack, Not Mine</h3>
-        <p class="value-desc">n8n, Make, Shopify, or custom code — built on the tools you already pay for. No affiliate bias, no vendor lock-in.</p>
+        <h3 class="product-name">Everything else</h3>
+        <p class="product-desc">Code challenges, shared configs, and whatever I'm currently taking apart.</p>
+        <div class="product-actions">
+          <a href="https://github.com/srmcguirt?tab=repositories" target="_blank" rel="noopener" class="btn btn-ghost btn-sm">All repositories</a>
+        </div>
       </div>
 
-      <div class="value-card">
-        <div class="value-icon">
-          <!-- Scale/balance: MIT licensed -->
-          <svg viewBox="0 0 24 24" aria-hidden="true">
-            <line x1="12" y1="3" x2="12" y2="21"/>
-            <path d="M17 8l4 8H13l4-8z"/>
-            <path d="M7 8l4 8H3l4-8z"/>
-            <line x1="4" y1="5" x2="20" y2="5"/>
-          </svg>
-        </div>
-        <h3 class="value-title">You Own Everything</h3>
-        <p class="value-desc">Documented handoff, credentials in your accounts, source in your repo. No strings attached.</p>
-      </div>
     </div>
   </div>
 </section>
 
-<!-- ─── Email Capture ───────────────────── -->
-<section class="cta-section" id="notify">
+<!-- ─── Stack ───────────────────────────── -->
+<section class="values" id="stack">
   <div class="container">
-    <div class="cta-box" data-reveal>
-      <h2>Get notified when we ship new&nbsp;tools</h2>
-      <p>No spam. Just releases, major updates, and the occasional deep dive.</p>
-      <form class="email-form" id="subscribe-form" aria-label="Newsletter signup">
-        <label for="email-input" class="sr-only">Email address</label>
-        <input
-          type="email"
-          id="email-input"
-          class="email-input"
-          placeholder="you@company.com"
-          required
-          autocomplete="email"
-          aria-label="Email address"
-        />
-        <button type="submit" class="btn btn-primary" id="subscribe-btn">Subscribe</button>
-      </form>
-      <p class="form-status" id="subscribe-status" role="status" aria-live="polite"></p>
+    <div class="section-header" data-reveal>
+      <p class="section-label">Stack</p>
+      <h2 class="section-title">What I reach for</h2>
     </div>
+    <ul class="stack-list" data-reveal>
+      <li>Rust</li><li>TypeScript</li><li>Node.js / Bun</li><li>Python</li><li>Nuxt</li>
+      <li>Supabase / Postgres</li><li>Cloudflare Workers</li><li>n8n</li><li>Anthropic SDK</li><li>Docker</li>
+    </ul>
   </div>
 </section>
 
 <!-- ─── Footer ──────────────────────────── -->
 <footer class="footer">
   <div class="container">
-    <p class="footer-copy">&copy; 2026 WireForge. All rights reserved.</p>
+    <p class="footer-copy">&copy; 2026 Shane McGuirt.</p>
     <ul class="footer-links">
       <li>
         <a href="https://github.com/srmcguirt" target="_blank" rel="noopener" aria-label="GitHub">
@@ -1023,17 +975,14 @@ section {
         </a>
       </li>
       <li>
-        <a href="https://x.com/wireforge" target="_blank" rel="noopener" aria-label="Twitter / X">
-          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M12.6.75h2.454l-5.36 6.142L16 15.25h-4.937l-3.867-5.07-4.425 5.07H.316l5.733-6.57L0 .75h5.063l3.495 4.633L12.601.75zm-.86 13.028h1.36L4.323 2.145H2.865l8.875 11.633z"/></svg>
-          Twitter
+        <a href="mailto:srmcguirt@gmail.com" aria-label="Email">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 3h12a1 1 0 011 1v8a1 1 0 01-1 1H2a1 1 0 01-1-1V4a1 1 0 011-1zm0 1.5V5l6 3.5L14 5v-.5L8 8 2 4.5z"/></svg>
+          Email
         </a>
       </li>
     </ul>
   </div>
 </footer>
-
-<!-- Visually hidden utility for screen readers -->
-<style>.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}</style>
 
 <script>
 // ── Scroll reveal (IntersectionObserver, no external deps) ──
