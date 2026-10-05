@@ -1,7 +1,7 @@
-# srmcguirt.github.io / srmcguirt.dev (WireForge)
+# srmcguirt.github.io / srmcguirt.dev
 
 Single source of truth for two published surfaces: the srmcguirt.dev site and
-the github.com/srmcguirt profile README. The site is served by the `wireforge`
+the github.com/srmcguirt profile README. The site is served by the `srmcguirt-dev`
 Cloudflare Worker: static assets in `public/` (index.html, robots.txt,
 sitemap.xml) plus `/subscribe` email capture backed by an `EMAILS` KV
 namespace (`src/worker.js`, `wrangler.toml`). The profile README lives at

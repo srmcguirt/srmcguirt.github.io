@@ -1,4 +1,4 @@
-// WireForge worker — serves static assets + email capture.
+// srmcguirt.dev worker — serves static assets + email capture.
 // Fixes vs previous deploy:
 //   1. ASSETS.fetch wrapped in try/catch — unknown paths now 404 instead of 500
 //      (the old worker returned 500 on /robots.txt, /favicon.ico, etc.,

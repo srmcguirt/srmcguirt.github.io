@@ -1,10 +1,10 @@
-# srmcguirt.dev — WireForge
+# srmcguirt.dev
 
 Single source of truth for two published surfaces:
 
 | Surface | Source in this repo | Published by |
 |---|---|---|
-| [srmcguirt.dev](https://srmcguirt.dev) | `public/` + `src/worker.js` | Cloudflare Worker `wireforge` |
+| [srmcguirt.dev](https://srmcguirt.dev) | `public/` + `src/worker.js` | Cloudflare Worker `srmcguirt-dev` |
 | [github.com/srmcguirt](https://github.com/srmcguirt) profile README | `profile/README.md` | pushed to the `srmcguirt/srmcguirt` repo |
 
 Edit here, publish from here. Never edit the profile repo directly — it gets overwritten.

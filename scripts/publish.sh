@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Publish both surfaces from this repo:
-#   1. srmcguirt.dev   -> Cloudflare Worker `wireforge` (npx wrangler deploy)
+#   1. srmcguirt.dev   -> Cloudflare Worker `srmcguirt-dev` (npx wrangler deploy)
 #   2. GitHub profile  -> srmcguirt/srmcguirt README.md (gh api, same content as profile/README.md)
 # Requires: `npx wrangler login` and `gh auth login` done once on this machine.
 # Usage: scripts/publish.sh [site|profile|all]   (default: all)
